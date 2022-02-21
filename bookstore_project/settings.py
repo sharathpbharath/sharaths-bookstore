@@ -167,3 +167,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.CustomUser' # new
 
+DEFAULT_FROM_EMAIL = 'admin@sharathbookstore.com'
