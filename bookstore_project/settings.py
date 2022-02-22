@@ -170,3 +170,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.CustomUser' # new
 
 DEFAULT_FROM_EMAIL = 'admin@sharathbookstore.com'
+
+MEDIA_URL = '/media/' # new
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # new
