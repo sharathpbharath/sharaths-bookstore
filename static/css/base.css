@@ -1,6 +1,12 @@
-h1 {
-    color: red;
+body {
+background-color: white;
 }
+
+h1 {
+    color: #2C3333;
+}
+
+
 
 .bookcover {
     height: 300px;

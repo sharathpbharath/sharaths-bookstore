@@ -1,6 +1,6 @@
 {% extends '_base.html' %}
 
-{% block title %}Books{% endblock title %}
+{% block title %}Sharath's BookStore{% endblock title %}
 
 {% block content %}
 {% if not perms.books.special_status %}
@@ -8,7 +8,7 @@
 {% endif %}
     {% for book in book_list %}
         <div>
-            <h2><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
+            <h2><a style="color: #2C3333;" href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
         </div>
     {% endfor %}
 {% endblock content %}
