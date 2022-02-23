@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'allauth', # new
     'allauth.account', # new
+    'debug_toolbar', # new
 
     # Local
     'users.apps.UsersConfig', # new
@@ -76,6 +77,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
 CRISPY_TEMPLATE_PACK = 'bootstrap4' # new
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware', # new
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -83,7 +85,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware', # new
+    'django.middleware.cache.FetchFromCacheMiddleware', # new
 ]
+
+CACHE_MIDDLEWARE_ALIAS = 'default'
+CACHE_MIDDLEWARE_SECONDS = 604800
+CACHE_MIDDLEWARE_KEY_PREFIX = ''
 
 ROOT_URLCONF = 'bookstore_project.urls'
 
@@ -178,3 +186,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # new
 # Stripe
 STRIPE_TEST_PUBLISHABLE_KEY=os.environ.get('pk_test_51KVtMQSCxYF0FbkYJkuGqW4Bag8Lfv8Nu5EvnKtZYwpdTjoUvgS6iQezr7OdkSs4GtlxXXLUJZfRJkchwWYP2kmP00LcCkRFoM')
 STRIPE_TEST_SECRET_KEY=os.environ.get('sk_test_51KVtMQSCxYF0FbkY1QBXVgRuEKNWJIBPufSRYS5LkzspW3yueJAUEDaVnOBzn1cBrVKz9MMW7PUicrB2BmuTjqAJ00ir21URXL')
+
+# django-debug-toolbar
+import socket
+hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
