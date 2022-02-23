@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig', # new
     'pages.apps.PagesConfig', # new
     'books.apps.BooksConfig', # new
+    'orders.apps.OrdersConfig', # new
     
 ]
 
@@ -173,3 +174,7 @@ DEFAULT_FROM_EMAIL = 'admin@sharathbookstore.com'
 
 MEDIA_URL = '/media/' # new
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # new
+
+# Stripe
+STRIPE_TEST_PUBLISHABLE_KEY=os.environ.get('pk_test_51KVtMQSCxYF0FbkYJkuGqW4Bag8Lfv8Nu5EvnKtZYwpdTjoUvgS6iQezr7OdkSs4GtlxXXLUJZfRJkchwWYP2kmP00LcCkRFoM')
+STRIPE_TEST_SECRET_KEY=os.environ.get('sk_test_51KVtMQSCxYF0FbkY1QBXVgRuEKNWJIBPufSRYS5LkzspW3yueJAUEDaVnOBzn1cBrVKz9MMW7PUicrB2BmuTjqAJ00ir21URXL')
