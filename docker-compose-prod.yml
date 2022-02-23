@@ -4,9 +4,9 @@ services:
   build: .
   command: python /code/manage.py runserver 0.0.0.0:8000
   environment: 
-  - ENVIRONMENT=development
+  - ENVIRONMENT=production
   - SECRET_KEY=django-insecure--5cooim4cd_phd2)w3*ohg$$q7b2*q85%=7$$0)h*nz2($$q5u8&w
-  - DEBUG=1
+  - DEBUG=0
   - STRIPE_TEST_PUBLISHABLE_KEY=pk_test_51KVtMQSCxYF0FbkYJkuGqW4Bag8Lfv8Nu5EvnKtZYwpdTjoUvgS6iQezr7OdkSs4GtlxXXLUJZfRJkchwWYP2kmP00LcCkRFoM
   - STRIPE_TEST_SECRET_KEY=sk_test_51KVtMQSCxYF0FbkY1QBXVgRuEKNWJIBPufSRYS5LkzspW3yueJAUEDaVnOBzn1cBrVKz9MMW7PUicrB2BmuTjqAJ00ir21URXL
   volumes:

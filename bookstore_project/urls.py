@@ -5,7 +5,7 @@ from django.urls import path, include # new
 
 urlpatterns = [
     # Django admin
-    path('admin/', admin.site.urls),
+    path('anything-but-admin/', admin.site.urls), # new
 
     # User management
     path('accounts/', include('allauth.urls')), # new
@@ -16,11 +16,7 @@ urlpatterns = [
     path('books/', include('books.urls')), # new
     path('orders/', include('orders.urls')), # new
     
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # new
-
+] 
 
 if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
